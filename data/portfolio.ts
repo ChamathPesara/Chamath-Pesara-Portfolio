@@ -30,7 +30,15 @@ export const portfolioData = {
   name: "Chamath Pesara",
   tagline: "Full-Stack Developer | AI & DevOps Enthusiast",
   bio: "Passionate IT undergraduate with strong interests in full-stack development, AI, and DevOps. Experienced in building scalable mobile, web, and desktop applications with an emphasis on seamless user experience.",
+  // Roles to cycle through in the typewriter
+  typewriterRoles: [
+    "Full-Stack Developer",
+    "AI & ML Enthusiast",
+    "DevOps Practitioner",
+    "MERN Stack Engineer",
+  ],
   location: "Colombo, Sri Lanka",
+  resumeUrl: "/Chamath_Pesara_Resume.pdf",
   socials: {
     github: "https://github.com/ChamathPesara",
     linkedin: "https://linkedin.com/in/chamath-pesara-19033b386",
