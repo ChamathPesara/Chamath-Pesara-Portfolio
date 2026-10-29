@@ -9,22 +9,26 @@ import {
   ArrowUpRight,
   Terminal,
   FileDown,
-  Sparkles 
+  Sparkles,
+  Briefcase 
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { FadeIn, CardHover } from "@/components/MotionWrapper";
-import { Typewriter } from "@/components/Typewriter"; // <-- 1. Import Typewriter
+import { Typewriter } from "@/components/Typewriter";
 import Link from "next/link";
+import Image from "next/image"; // <-- 1. Import optimized image component
 
 export default function Home() {
   const { 
     name, 
+    profileImage, 
     typewriterRoles, 
     bio, 
     location, 
     socials, 
     resumeUrl, 
-    techStack, 
+    techStack,
+    experience, 
     academics, 
     achievements, 
     projects 
@@ -44,30 +48,48 @@ export default function Home() {
 
         {/* --- Hero Section --- */}
         <section className="space-y-7 pt-12 sm:pt-16">
-          <FadeIn delay={0.1}>
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-indigo-500/30 bg-slate-900/80 backdrop-blur-md shadow-inner shadow-indigo-500/10">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-indigo-300 text-xs font-mono tracking-wide">
-                Available for Roles & Internships
-              </span>
-            </div>
-          </FadeIn>
+          <FadeIn delay={0.1} className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="space-y-4 order-2 sm:order-1">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-indigo-500/30 bg-slate-900/80 backdrop-blur-md shadow-inner shadow-indigo-500/10">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
+                <span className="text-indigo-300 text-xs font-mono tracking-wide">
+                  Available for Roles & Internships
+                </span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                <span className="bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                  {name}
+                </span>
+              </h1>
 
-          <FadeIn delay={0.2} className="space-y-3">
-            <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight">
-              <span className="bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-                {name}
-              </span>
-            </h1>
-
-            {/* Typewriter Subheading */}
-            <div className="text-lg sm:text-2xl font-mono text-indigo-400 font-medium tracking-tight flex items-center gap-2 min-h-[2rem]">
-              <Terminal className="w-5 h-5 text-indigo-400 shrink-0" />
-              <Typewriter words={typewriterRoles} />
+              {/* Typewriter Subheading */}
+              <div className="text-lg sm:text-2xl font-mono text-indigo-400 font-medium tracking-tight flex items-center gap-2 min-h-[2rem]">
+                <Terminal className="w-5 h-5 text-indigo-400 shrink-0" />
+                <Typewriter words={typewriterRoles} />
+              </div>
             </div>
+
+            {/* Profile Picture (Animated and styled with glowing borders) */}
+            {profileImage && (
+              <div className="order-1 sm:order-2 shrink-0">
+                <div className="relative w-40 h-40 sm:w-52 sm:h-52 rounded-full p-1 bg-gradient-to-tr from-indigo-500 to-cyan-400 shadow-xl shadow-indigo-500/15">
+                  <div className="w-full h-full rounded-full overflow-hidden border border-slate-955 bg-slate-900">
+                    <Image
+                      src={profileImage}
+                      alt={`${name}'s photo`}
+                      width={144}
+                      height={144}
+                      priority
+                      className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
           </FadeIn>
 
           <FadeIn delay={0.3}>
@@ -85,7 +107,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 hover:text-white font-medium text-sm transition-all shadow-sm active:scale-95"
               >
                 <FileDown className="w-4 h-4 text-indigo-400" />
-                Resume
+                My Resume
               </a>
             )}
 
@@ -207,6 +229,50 @@ export default function Home() {
                     </div>
                   </div>
                 </CardHover>
+              ))}
+            </div>
+          </section>
+        </FadeIn>
+
+        {/* --- Work Experience Section --- */}
+        <FadeIn delay={0.1}>
+          <section className="space-y-7">
+            <div className="flex items-center justify-between border-b border-slate-800/80 pb-4">
+              <div className="flex items-center gap-3">
+                <Briefcase className="w-5 h-5 text-indigo-400" />
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">Work Experience</h2>
+              </div>
+              <span className="text-xs font-mono text-slate-500">// professional background</span>
+            </div>
+
+            <div className="space-y-6">
+              {experience.map((exp, idx) => (
+                <div
+                  key={idx}
+                  className="relative pl-6 border-l border-slate-800 hover:border-indigo-500/70 transition-colors"
+                >
+                  <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-slate-700 hover:bg-indigo-400 transition" />
+                  
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-base sm:text-lg font-semibold text-slate-200">{exp.role}</h3>
+                      {exp.badge && (
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-indigo-500/10 border border-indigo-500/30 text-indigo-300">
+                          {exp.badge}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-xs font-mono text-slate-500">{exp.period}</span>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-indigo-400 font-medium mt-0.5">{exp.company}</p>
+
+                  <ul className="mt-3 list-disc list-inside text-xs sm:text-sm text-slate-400 space-y-1.5">
+                    {exp.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="leading-relaxed">{pt}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </section>

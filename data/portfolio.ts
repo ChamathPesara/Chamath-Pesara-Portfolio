@@ -6,6 +6,14 @@ export interface Project {
   liveUrl?: string;
 }
 
+export interface Experience {
+  role: string;
+  company: string;
+  period: string;
+  badge?: string;
+  points: string[];
+}
+
 export interface Education {
   degree: string;
   institution: string;
@@ -28,6 +36,7 @@ export interface SkillCategory {
 
 export const portfolioData = {
   name: "Chamath Pesara",
+  profileImage: "/profile_2.jpg",
   tagline: "Full-Stack Developer | AI & DevOps Enthusiast",
   bio: "Passionate IT undergraduate with strong interests in full-stack development, AI, and DevOps. Experienced in building scalable mobile, web, and desktop applications with an emphasis on seamless user experience.",
   // Roles to cycle through in the typewriter
@@ -79,11 +88,34 @@ export const portfolioData = {
       ],
     },
     {
+      degree: "G.C.E A/L & O/L",
+      institution: "Mahinda Rajapakshe College, Homagama",
+      period: "2018 & 2022",
+      highlights: [
+        "G.C.E A/L - Passed in Physical Science Stream (Com.maths - C, Physics - C, IT - B)",
+        "G.C.E O/L - Passed (9 A's)",
+      ],
+    },
+    {
       degree: "Diploma in Information Technology",
       institution: "ESOFT Metro Campus",
       period: "2019",
     },
   ] as Education[],
+
+  experience: [
+    {
+      role: "Trainee (NVQ Program)",
+      company: "P&S Bakers (Pvt) Ltd",
+      period: "4 Months (2022 — 2023)",
+      badge: "National Vocational Qualification",
+      points: [
+        "Completed a 4-month professional training program under the National Vocational Qualification (NVQ) framework.",
+        "Collaborated in a fast-paced commercial environment and supported core operational and administrative tasks.",
+        "Demonstrated strong teamwork, proactive problem-solving, and cross-functional communication skills.",
+      ],
+    },
+  ] as Experience[],
 
   // Achievements & Certifications
   achievements: [
@@ -131,43 +163,43 @@ export const portfolioData = {
       title: "ARGUS (Final Year Project - Team SHINKA)",
       description: "A Figma plugin that detects near real-time UI/UX issues inside Figma designs to improve accessibility and design compliance.",
       tags: ["Figma Plugin API", "JavaScript/TypeScript", "UI/UX QA", "Heuristics"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/NobodydeBunny/ARGUS",
     },
     {
       title: "AirCheck",
       description: "An AI-integrated Android app that provides diagnostics for breathing-related diseases using audio recordings as inputs.",
       tags: ["Android Studio", "Python", "Deep Learning", "CNN", "Audio Processing"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/AirCheck",
     },
     {
       title: "PetBreedAI",
       description: "Mobile computer-vision app utilizing MobileNet CNN architecture for accurate classification across 37 dog and cat breeds.",
       tags: ["Android Studio", "TensorFlow Lite", "MobileNet CNN", "Java/Kotlin"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/PetBreedAI",
     },
     {
       title: "SkyBook",
       description: "Full-featured flight ticket reservation web application complete with secure authentication and integrated payment handling.",
       tags: ["React", "Node.js", "Express.js", "JWT", "Stripe"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/SkyBook",
     },
     {
       title: "LuxeStay",
       description: "Modern hotel booking platform supporting room availability discovery, reservation management, and role-based access.",
       tags: ["MongoDB Atlas", "Express.js", "React", "Node.js", "JWT"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/LuxeStay",
     },
     {
       title: "Cee-Weather",
       description: "Global weather monitoring dashboard utilizing real-time meteorological data via the OpenWeather REST API.",
       tags: ["React", "Express.js", "Node.js", "OpenWeather API"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/Cee-Weather",
     },
     {
       title: "Income & Expense Tracker",
       description: "Desktop financial management application built with desktop UI components and persistent CSV data pipelines.",
       tags: ["C++", "Qt", "CSV Persistence", "Desktop GUI"],
-      githubUrl: "https://github.com/ChamathPesara",
+      githubUrl: "https://github.com/ChamathPesara/Project_OOP",
     },
   ] as Project[],
 };
